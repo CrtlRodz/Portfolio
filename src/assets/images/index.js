@@ -4,6 +4,7 @@ import Gic from './Gic.png'
 import CloudSmiths from './cloudsmiths.png'
 import tesla from './tesla.png'
 import logo from './logo.png'
+import meme from './meme.jpg'
 
 export {
     hero,
@@ -11,5 +12,6 @@ export {
     Gic,
     CloudSmiths,
     tesla,
-    logo
+    logo,
+    meme
 }

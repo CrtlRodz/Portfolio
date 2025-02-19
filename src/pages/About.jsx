@@ -6,6 +6,7 @@ import {
 
 import { CTA } from "../components";
 import { experiences, skills } from "../constants";
+import { meme } from "../assets/images";
 
 import "react-vertical-timeline-component/style.min.css";
 
@@ -26,7 +27,6 @@ const About = () => {
           console.log("Since you're here, try typing `unlock()` 😉");
 
           window.unlock = () => {
-            const memeUrl = "src/assets/Ithinkimfunny.jpg";
             const memePopup = document.createElement("div");
 
             memePopup.innerHTML = `
@@ -46,7 +46,7 @@ const About = () => {
               align-items: center;
             ">
               <p style="font-size: 18px; margin-bottom: 10px;">Congrats! You unlocked the meme! 🎉</p>
-              <img src="${memeUrl}" alt="Meme" style="max-width: 100%; max-height: 300px; border-radius: 5px; display: block; margin: 0 auto; padding:10px"/>
+              <img src="${meme}" alt="Meme" style="max-width: 100%; max-height: 300px; border-radius: 5px; display: block; margin: 0 auto; padding:10px"/>
               <br>
 
               <button onclick="this.parentElement.remove()" style="
