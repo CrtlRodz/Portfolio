@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -8,7 +9,68 @@ import { experiences, skills } from "../constants";
 
 import "react-vertical-timeline-component/style.min.css";
 
+
 const About = () => {
+  useEffect(() => {
+    let open = false;
+    const threshold = 160;
+
+    const checkDevTools = () => {
+      if (
+        window.outerWidth - window.innerWidth > threshold ||
+        window.outerHeight - window.innerHeight > threshold
+      ) {
+        if (!open) {
+          open = true;
+          console.log("%c Well, well, well... 👀", "color: orange; font-size: 16px;");
+          console.log("Since you're here, try typing `unlock()` 😉");
+
+          window.unlock = () => {
+            const memeUrl = "/public/Ithinkimfunny.jpg";
+            const memePopup = document.createElement("div");
+
+            memePopup.innerHTML = `
+            <div style="
+              position: fixed;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              background: white;
+              padding: 20px;
+              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+              text-align: center;
+              border-radius: 10px;
+              z-index: 1000;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+            ">
+              <p style="font-size: 18px; margin-bottom: 10px;">Congrats! You unlocked the meme! 🎉</p>
+              <img src="${memeUrl}" alt="Meme" style="max-width: 100%; max-height: 300px; border-radius: 5px; display: block; margin: 0 auto; padding:10px"/>
+              <br>
+
+              <button onclick="this.parentElement.remove()" style="
+                padding: 8px 12px 8px 12px;
+                background: #ff66b2;
+                color: white;
+                border: none;
+                cursor: pointer;
+                border-radius: 5px;
+              ">Close</button>
+            </div>
+          `;
+
+            document.body.appendChild(memePopup);
+          };
+
+        }
+      }
+    };
+
+    window.addEventListener("resize", checkDevTools);
+    return () => window.removeEventListener("resize", checkDevTools);
+  }, []);
+
   return (
     <section className='max-container'>
       <h1 className='head-text'>
@@ -58,7 +120,7 @@ const About = () => {
           <VerticalTimeline>
             {experiences.map((experience, index) => (
               <VerticalTimelineElement
-                key={experience.company_name}
+                key={experience.id}
                 date={experience.date}
                 iconStyle={{ background: experience.iconBg }}
                 icon={

@@ -102,6 +102,7 @@ export const skills = [
 
 export const experiences = [
     {
+        id: "0",
         title: "Software Engineer",
         company_name: "CloudSmiths",
         icon: CloudSmiths,
@@ -115,6 +116,7 @@ export const experiences = [
         ],
     },
     {
+        id: "1",
         title: "Software Developer",
         company_name: "Gap Infrastructure Corporation - GIC",
         icon: Gic,
@@ -127,6 +129,7 @@ export const experiences = [
         ]
     },
     {
+        id: "2",
         title: "Web Developer",
         company_name: "Gap Infrastructure Corporation - GIC",
         icon: Gic,
