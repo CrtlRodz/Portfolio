@@ -26,7 +26,7 @@ const About = () => {
           console.log("Since you're here, try typing `unlock()` 😉");
 
           window.unlock = () => {
-            const memeUrl = "/public/Ithinkimfunny.jpg";
+            const memeUrl = "src/assets/Ithinkimfunny.jpg";
             const memePopup = document.createElement("div");
 
             memePopup.innerHTML = `
